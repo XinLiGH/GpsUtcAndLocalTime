@@ -1,31 +1,41 @@
-/****************************************************************
- * Copyright (C) 2017, Yagro, all right reserved.
- * File name:    DateTime.h
- * Date:         2017.10.17
- * Description:  Date and time module header file.
-*****************************************************************/
+/**
+  ******************************************************************************
+  * @file    DateTime.h
+  * @author  XinLi
+  * @version v1.0
+  * @date    24-October-2017
+  * @brief   Header file for DateTime.c module.
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>Copyright &copy; 2017 XinLi</center></h2>
+  *
+  * This program is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  *
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  *
+  ******************************************************************************
+  */
 
 #ifndef __DATETIME_H
 #define __DATETIME_H
 
-/****************************************************************
- *                        Header include
-*****************************************************************/
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-
-/****************************************************************
- *                       Macro definition
-*****************************************************************/
-
-
-/****************************************************************
- *                       Type definition
-*****************************************************************/
-
-
-/****************************************************************
- *                     Structure definition
-*****************************************************************/
+/* Header includes -----------------------------------------------------------*/
+/* Macro definitions ---------------------------------------------------------*/
+/* Type definitions ----------------------------------------------------------*/
 typedef struct
 {
   int year;
@@ -42,19 +52,9 @@ typedef struct
   int second;
 }GpsWeekSecond;
 
-
-#ifdef __cplusplus
-extern "C" {
-#endif  /* __cplusplus */
-
-/****************************************************************
- *                     Variable declaration
-*****************************************************************/
-
-
-/****************************************************************
- *                     Function declaration
-*****************************************************************/
+/* Variable declarations -----------------------------------------------------*/
+/* Variable definitions ------------------------------------------------------*/
+/* Function declarations -----------------------------------------------------*/
 DateTime GregorianCalendarDateAddYear(DateTime time, int year);
 DateTime GregorianCalendarDateAddMonth(DateTime time, int month);
 DateTime GregorianCalendarDateAddWeek(DateTime time, int week);
@@ -96,8 +96,10 @@ DateTime ModifiedJulianDateToGregorianCalendarDate(double mjd);
 GpsWeekSecond ModifiedJulianDateToGpsWeekSecond(double mjd);
 double ModifiedJulianDateToJulianDate(double mjd);
 
+/* Function definitions ------------------------------------------------------*/
+
 #ifdef __cplusplus
 }
-#endif  /* __cplusplus */
+#endif
 
-#endif  /* __DATETIME_H */
+#endif /* __DATETIME_H */

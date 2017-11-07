@@ -1,40 +1,52 @@
-/****************************************************************
- * Copyright (C) 2017, Yagro, all right reserved.
- * File name:    main.c
- * Date:         2017.10.17
- * Description:  GPS, UTC and local time displays.
-*****************************************************************/
+/**
+  ******************************************************************************
+  * @file    main.c
+  * @author  XinLi
+  * @version v1.0
+  * @date    24-October-2017
+  * @brief   Main program body.
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>Copyright &copy; 2017 XinLi</center></h2>
+  *
+  * This program is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  *
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  *
+  ******************************************************************************
+  */
 
-/****************************************************************
- *                        Header include
-*****************************************************************/
+/* Header includes -----------------------------------------------------------*/
 #include "DateTime.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <time.h>
 #include <windows.h>
 
-/****************************************************************
- *                       Global variables
-*****************************************************************/
-
-
-/****************************************************************
- *                     Function declaration
-*****************************************************************/
+/* Macro definitions ---------------------------------------------------------*/
+/* Type definitions ----------------------------------------------------------*/
+/* Variable declarations -----------------------------------------------------*/
+/* Variable definitions ------------------------------------------------------*/
+/* Function declarations -----------------------------------------------------*/
 static void gotoxy(int x, int y);
 
-/****************************************************************
- *                     Function definition
-*****************************************************************/
+/* Function definitions ------------------------------------------------------*/
 
-/****************************************************************
- * Function:    main
- * Description: Program entry.
- * Input:
- * Output:
- * Return:
-*****************************************************************/
+/**
+  * @brief  Main program.
+  * @param  None.
+  * @return None.
+  */
 int main(void)
 {
   for(;;)
@@ -83,14 +95,12 @@ int main(void)
   }
 }
 
-/****************************************************************
- * Function:    gotoxy
- * Description: Move the cursor to the specified position on the text screen.
- * Input:       x: X axis coordinates.
- *              y: Y axis coordinates.
- * Output:
- * Return:
-*****************************************************************/
+/**
+  * @brief  Move the cursor to the specified position on the text screen.
+  * @param  [in] x: X axis coordinates.
+  * @param  [in] y: Y axis coordinates.
+  * @return None.
+  */
 static void gotoxy(int x, int y)
 {
   COORD  pos  = {x, y};

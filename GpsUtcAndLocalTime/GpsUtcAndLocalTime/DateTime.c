@@ -1,37 +1,47 @@
-/****************************************************************
- * Copyright (C) 2017, Yagro, all right reserved.
- * File name:    DateTime.c
- * Date:         2017.10.17
- * Description:  Date and time module source file.
-*****************************************************************/
+/**
+  ******************************************************************************
+  * @file    DateTime.c
+  * @author  XinLi
+  * @version v1.0
+  * @date    24-October-2017
+  * @brief   Date and time module source file.
+  ******************************************************************************
+  * @attention
+  *
+  * <h2><center>Copyright &copy; 2017 XinLi</center></h2>
+  *
+  * This program is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  *
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  *
+  ******************************************************************************
+  */
 
-/****************************************************************
- *                        Header include
-*****************************************************************/
+/* Header includes -----------------------------------------------------------*/
 #include "DateTime.h"
 
-/****************************************************************
- *                       Global variables
-*****************************************************************/
+/* Macro definitions ---------------------------------------------------------*/
+/* Type definitions ----------------------------------------------------------*/
+/* Variable declarations -----------------------------------------------------*/
+/* Variable definitions ------------------------------------------------------*/
+/* Function declarations -----------------------------------------------------*/
+/* Function definitions ------------------------------------------------------*/
 
-
-/****************************************************************
- *                     Function declaration
-*****************************************************************/
-
-
-/****************************************************************
- *                     Function definition
-*****************************************************************/
-
-/****************************************************************
- * Function:    GregorianCalendarDateAddYear
- * Description: Gregorian calendar date add year.
- * Input:       time: Gregorian calendar date.
- *              year: The number of year to add.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date add year.
+  * @param  [in] time: Gregorian calendar date.
+  * @param  [in] year: The number of year to add.
+  * @return Gregorian calendar date.
+  */
 DateTime GregorianCalendarDateAddYear(DateTime time, int year)
 {
   time.year += year;
@@ -59,14 +69,12 @@ DateTime GregorianCalendarDateAddYear(DateTime time, int year)
   return time;
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateAddMonth
- * Description: Gregorian calendar date add month.
- * Input:       time:  Gregorian calendar date.
- *              month: The number of month to add.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date add month.
+  * @param  [in] time:  Gregorian calendar date.
+  * @param  [in] month: The number of month to add.
+  * @return Gregorian calendar date.
+  */
 DateTime GregorianCalendarDateAddMonth(DateTime time, int month)
 {
   time.year  += month / 12;
@@ -116,14 +124,12 @@ DateTime GregorianCalendarDateAddMonth(DateTime time, int month)
   return time;
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateAddWeek
- * Description: Gregorian calendar date add week.
- * Input:       time: Gregorian calendar date.
- *              week: The number of week to add.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date add week.
+  * @param  [in] time: Gregorian calendar date.
+  * @param  [in] week: The number of week to add.
+  * @return Gregorian calendar date.
+  */
 DateTime GregorianCalendarDateAddWeek(DateTime time, int week)
 {
   double jd = GregorianCalendarDateToJulianDate(time) + week * 7.0;
@@ -131,14 +137,12 @@ DateTime GregorianCalendarDateAddWeek(DateTime time, int week)
   return JulianDateToGregorianCalendarDate(jd);
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateAddDay
- * Description: Gregorian calendar date add day.
- * Input:       time: Gregorian calendar date.
- *              day:  The number of day to add.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date add day.
+  * @param  [in] time: Gregorian calendar date.
+  * @param  [in] day:  The number of day to add.
+  * @return Gregorian calendar date.
+  */
 DateTime GregorianCalendarDateAddDay(DateTime time, int day)
 {
   double jd = GregorianCalendarDateToJulianDate(time) + day;
@@ -146,14 +150,12 @@ DateTime GregorianCalendarDateAddDay(DateTime time, int day)
   return JulianDateToGregorianCalendarDate(jd);
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateAddHour
- * Description: Gregorian calendar date add hour.
- * Input:       time: Gregorian calendar date.
- *              hour: The number of hour to add.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date add hour.
+  * @param  [in] time: Gregorian calendar date.
+  * @param  [in] hour: The number of hour to add.
+  * @return Gregorian calendar date.
+  */
 DateTime GregorianCalendarDateAddHour(DateTime time, int hour)
 {
   time.hour += hour;
@@ -163,14 +165,12 @@ DateTime GregorianCalendarDateAddHour(DateTime time, int hour)
   return JulianDateToGregorianCalendarDate(jd);
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateAddMinute
- * Description: Gregorian calendar date add minute.
- * Input:       time:   Gregorian calendar date.
- *              minute: The number of minute to add.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date add minute.
+  * @param  [in] time:   Gregorian calendar date.
+  * @param  [in] minute: The number of minute to add.
+  * @return Gregorian calendar date.
+  */
 DateTime GregorianCalendarDateAddMinute(DateTime time, int minute)
 {
   time.minute += minute;
@@ -180,14 +180,12 @@ DateTime GregorianCalendarDateAddMinute(DateTime time, int minute)
   return JulianDateToGregorianCalendarDate(jd);
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateAddSecond
- * Description: Gregorian calendar date add second.
- * Input:       time:   Gregorian calendar date.
- *              second: The number of seconds to add.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date add second.
+  * @param  [in] time:   Gregorian calendar date.
+  * @param  [in] second: The number of seconds to add.
+  * @return Gregorian calendar date.
+  */
 DateTime GregorianCalendarDateAddSecond(DateTime time, int second)
 {
   time.second += second;
@@ -197,13 +195,11 @@ DateTime GregorianCalendarDateAddSecond(DateTime time, int second)
   return JulianDateToGregorianCalendarDate(jd);
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateToGpsWeekSecond
- * Description: Gregorian calendar date to gps week and second.
- * Input:       time: Gregorian calendar date.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date to gps week and second.
+  * @param  [in] time: Gregorian calendar date.
+  * @return Gps week and second.
+  */
 GpsWeekSecond GregorianCalendarDateToGpsWeekSecond(DateTime time)
 {
   double jd = GregorianCalendarDateToJulianDate(time);
@@ -211,13 +207,11 @@ GpsWeekSecond GregorianCalendarDateToGpsWeekSecond(DateTime time)
   return JulianDateToGpsWeekSecond(jd);
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateToJulianDate
- * Description: Gregorian calendar date to julian date.
- * Input:       time: Gregorian calendar date.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date to julian date.
+  * @param  [in] time: Gregorian calendar date.
+  * @return Julian date.
+  */
 double GregorianCalendarDateToJulianDate(DateTime time)
 {
   int jdn = (1461 * (time.year + 4800 + (time.month - 14) / 12)) / 4
@@ -230,26 +224,22 @@ double GregorianCalendarDateToJulianDate(DateTime time)
   return jd;
 }
 
-/****************************************************************
- * Function:    GregorianCalendarDateToModifiedJulianDate
- * Description: Gregorian calendar date to modified julian date.
- * Input:       time: Gregorian calendar date.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Gregorian calendar date to modified julian date.
+  * @param  [in] time: Gregorian calendar date.
+  * @return Modified julian date.
+  */
 double GregorianCalendarDateToModifiedJulianDate(DateTime time)
 {
   return GregorianCalendarDateToJulianDate(time) - 2400000.5;
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondAddYear
- * Description: Gps week and second add year.
- * Input:       time: Gps week and second.
- *              year: The number of year to add.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Gps week and second add year.
+  * @param  [in] time: Gps week and second.
+  * @param  [in] year: The number of year to add.
+  * @return Gps week and second.
+  */
 GpsWeekSecond GpsWeekSecondAddYear(GpsWeekSecond time, int year)
 {
   DateTime date = GpsWeekSecondToGregorianCalendarDate(time);
@@ -259,14 +249,12 @@ GpsWeekSecond GpsWeekSecondAddYear(GpsWeekSecond time, int year)
   return GregorianCalendarDateToGpsWeekSecond(date);
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondAddMonth
- * Description: Gps week and second add month.
- * Input:       time:  Gps week and second.
- *              month: The number of month to add.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Gps week and second add month.
+  * @param  [in] time:  Gps week and second.
+  * @param  [in] month: The number of month to add.
+  * @return Gps week and second.
+  */
 GpsWeekSecond GpsWeekSecondAddMonth(GpsWeekSecond time, int month)
 {
   DateTime date = GpsWeekSecondToGregorianCalendarDate(time);
@@ -276,14 +264,12 @@ GpsWeekSecond GpsWeekSecondAddMonth(GpsWeekSecond time, int month)
   return GregorianCalendarDateToGpsWeekSecond(date);
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondAddWeek
- * Description: Gps week and second add week.
- * Input:       time: Gps week and second.
- *              week: The number of week to add.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Gps week and second add week.
+  * @param  [in] time: Gps week and second.
+  * @param  [in] week: The number of week to add.
+  * @return Gps week and second.
+  */
 GpsWeekSecond GpsWeekSecondAddWeek(GpsWeekSecond time, int week)
 {
   time.week += week;
@@ -291,14 +277,12 @@ GpsWeekSecond GpsWeekSecondAddWeek(GpsWeekSecond time, int week)
   return time;
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondAddDay
- * Description: Gps week and second add day.
- * Input:       time: Gps week and second.
- *              day:  The number of day to add.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Gps week and second add day.
+  * @param  [in] time: Gps week and second.
+  * @param  [in] day:  The number of day to add.
+  * @return Gps week and second.
+  */
 GpsWeekSecond GpsWeekSecondAddDay(GpsWeekSecond time, int day)
 {
   time.week   += day / 7;
@@ -313,14 +297,12 @@ GpsWeekSecond GpsWeekSecondAddDay(GpsWeekSecond time, int day)
   return time;
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondAddHour
- * Description: Gps week and second add hour.
- * Input:       time: Gps week and second.
- *              hour: The number of hour to add.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Gps week and second add hour.
+  * @param  [in] time: Gps week and second.
+  * @param  [in] hour: The number of hour to add.
+  * @return Gps week and second.
+  */
 GpsWeekSecond GpsWeekSecondAddHour(GpsWeekSecond time, int hour)
 {
   time.week   += hour / 168;
@@ -335,14 +317,12 @@ GpsWeekSecond GpsWeekSecondAddHour(GpsWeekSecond time, int hour)
   return time;
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondAddMinute
- * Description: Gps week and second add minute.
- * Input:       time:   Gps week and second.
- *              minute: The number of minute to add.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Gps week and second add minute.
+  * @param  [in] time:   Gps week and second.
+  * @param  [in] minute: The number of minute to add.
+  * @return Gps week and second.
+  */
 GpsWeekSecond GpsWeekSecondAddMinute(GpsWeekSecond time, int minute)
 {
   time.week   += minute / 10080;
@@ -357,14 +337,12 @@ GpsWeekSecond GpsWeekSecondAddMinute(GpsWeekSecond time, int minute)
   return time;
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondAddSecond
- * Description: Gps week and second add second.
- * Input:       time:   Gps week and second.
- *              second: The number of second to add.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Gps week and second add second.
+  * @param  [in] time:   Gps week and second.
+  * @param  [in] second: The number of second to add.
+  * @return Gps week and second.
+  */
 GpsWeekSecond GpsWeekSecondAddSecond(GpsWeekSecond time, int second)
 {
   time.week   += second / 604800;
@@ -379,13 +357,11 @@ GpsWeekSecond GpsWeekSecondAddSecond(GpsWeekSecond time, int second)
   return time;
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondToGregorianCalendarDate
- * Description: Gps week and second to gregorian calendar date.
- * Input:       time: Gps week and second.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Gps week and second to gregorian calendar date.
+  * @param  [in] time: Gps week and second.
+  * @return Gregorian calendar date.
+  */
 DateTime GpsWeekSecondToGregorianCalendarDate(GpsWeekSecond time)
 {
   double jd = GpsWeekSecondToJulianDate(time);
@@ -393,13 +369,11 @@ DateTime GpsWeekSecondToGregorianCalendarDate(GpsWeekSecond time)
   return JulianDateToGregorianCalendarDate(jd);
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondToJulianDate
- * Description: Gps week and second to julian date.
- * Input:       time: Gps week and second.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Gps week and second to julian date.
+  * @param  [in] time: Gps week and second.
+  * @return Julian date.
+  */
 double GpsWeekSecondToJulianDate(GpsWeekSecond time)
 {
   double jd = 2444244.5 + time.week * 7.0 + time.second / 86400.0;
@@ -407,26 +381,22 @@ double GpsWeekSecondToJulianDate(GpsWeekSecond time)
   return jd;
 }
 
-/****************************************************************
- * Function:    GpsWeekSecondToModifiedJulianDate
- * Description: Gps week and second to modified julian date.
- * Input:       time: Gps week and second.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Gps week and second to modified julian date.
+  * @param  [in] time: Gps week and second.
+  * @return Modified julian date.
+  */
 double GpsWeekSecondToModifiedJulianDate(GpsWeekSecond time)
 {
   return GpsWeekSecondToJulianDate(time) - 2400000.5;
 }
 
-/****************************************************************
- * Function:    JulianDateAddYear
- * Description: Julian date add year.
- * Input:       jd:   Julian date.
- *              year: The number of year to add.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Julian date add year.
+  * @param  [in] jd:   Julian date.
+  * @param  [in] year: The number of year to add.
+  * @return Julian date.
+  */
 double JulianDateAddYear(double jd, int year)
 {
   DateTime date = JulianDateToGregorianCalendarDate(jd);
@@ -436,14 +406,12 @@ double JulianDateAddYear(double jd, int year)
   return GregorianCalendarDateToJulianDate(date);
 }
 
-/****************************************************************
- * Function:    JulianDateAddMonth
- * Description: Julian date add month.
- * Input:       jd:    Julian date.
- *              month: The number of month to add.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Julian date add month.
+  * @param  [in] jd:    Julian date.
+  * @param  [in] month: The number of month to add.
+  * @return Julian date.
+  */
 double JulianDateAddMonth(double jd, int month)
 {
   DateTime date = JulianDateToGregorianCalendarDate(jd);
@@ -453,14 +421,12 @@ double JulianDateAddMonth(double jd, int month)
   return GregorianCalendarDateToJulianDate(date);
 }
 
-/****************************************************************
- * Function:    JulianDateAddWeek
- * Description: Julian date add week.
- * Input:       jd:   Julian date.
- *              week: The number of week to add.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Julian date add week.
+  * @param  [in] jd:   Julian date.
+  * @param  [in] week: The number of week to add.
+  * @return Julian date.
+  */
 double JulianDateAddWeek(double jd, int week)
 {
   jd += week * 7.0;
@@ -468,14 +434,12 @@ double JulianDateAddWeek(double jd, int week)
   return jd;
 }
 
-/****************************************************************
- * Function:    JulianDateAddDay
- * Description: Julian date add day.
- * Input:       jd:  Julian date.
- *              day: The number of day to add.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Julian date add day.
+  * @param  [in] jd:  Julian date.
+  * @param  [in] day: The number of day to add.
+  * @return Julian date.
+  */
 double JulianDateAddDay(double jd, int day)
 {
   jd += day;
@@ -483,14 +447,12 @@ double JulianDateAddDay(double jd, int day)
   return jd;
 }
 
-/****************************************************************
- * Function:    JulianDateAddHour
- * Description: Julian date add hour.
- * Input:       jd:   Julian date.
- *              hour: The number of hour to add.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Julian date add hour.
+  * @param  [in] jd:   Julian date.
+  * @param  [in] hour: The number of hour to add.
+  * @return Julian date.
+  */
 double JulianDateAddHour(double jd, int hour)
 {
   jd += hour / 24.0;
@@ -498,14 +460,12 @@ double JulianDateAddHour(double jd, int hour)
   return jd;
 }
 
-/****************************************************************
- * Function:    JulianDateAddMinute
- * Description: Julian date add minute.
- * Input:       jd:     Julian date.
- *              minute: The number of minute to add.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Julian date add minute.
+  * @param  [in] jd:     Julian date.
+  * @param  [in] minute: The number of minute to add.
+  * @return Julian date.
+  */
 double JulianDateAddMinute(double jd, int minute)
 {
   jd += minute / 1440.0;
@@ -513,14 +473,12 @@ double JulianDateAddMinute(double jd, int minute)
   return jd;
 }
 
-/****************************************************************
- * Function:    JulianDateAddSecond
- * Description: Julian date add second.
- * Input:       jd:     Julian date.
- *              second: The number of second to add.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Julian date add second.
+  * @param  [in] jd:     Julian date.
+  * @param  [in] second: The number of second to add.
+  * @return Julian date.
+  */
 double JulianDateAddSecond(double jd, int second)
 {
   jd += second / 86400.0;
@@ -528,13 +486,11 @@ double JulianDateAddSecond(double jd, int second)
   return jd;
 }
 
-/****************************************************************
- * Function:    JulianDateToGregorianCalendarDate
- * Description: Julian date to gregorian calendar date.
- * Input:       jd: Julian date.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Julian date to gregorian calendar date.
+  * @param  [in] jd: Julian date.
+  * @return Gregorian calendar date.
+  */
 DateTime JulianDateToGregorianCalendarDate(double jd)
 {
   int y = 4716;
@@ -568,13 +524,11 @@ DateTime JulianDateToGregorianCalendarDate(double jd)
   return time;
 }
 
-/****************************************************************
- * Function:    JulianDateToGpsWeekSecond
- * Description: Julian date to gps week and second.
- * Input:       jd: Julian date.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Julian date to gps week and second.
+  * @param  [in] jd: Julian date.
+  * @return Gps week and second.
+  */
 GpsWeekSecond JulianDateToGpsWeekSecond(double jd)
 {
   GpsWeekSecond time = {0};
@@ -586,13 +540,11 @@ GpsWeekSecond JulianDateToGpsWeekSecond(double jd)
   return time;
 }
 
-/****************************************************************
- * Function:    JulianDateToModifiedJulianDate
- * Description: Julian date to modified julian date.
- * Input:       jd: Julian date.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Julian date to modified julian date.
+  * @param  [in] jd: Julian date.
+  * @return Modified julian date.
+  */
 double JulianDateToModifiedJulianDate(double jd)
 {
   double mjd = jd - 2400000.5;
@@ -600,14 +552,12 @@ double JulianDateToModifiedJulianDate(double jd)
   return mjd;
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateAddYear
- * Description: Modified julian date add year.
- * Input:       mjd:  Modified julian date.
- *              year: The number of year to add.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date add year.
+  * @param  [in] mjd:  Modified julian date.
+  * @param  [in] year: The number of year to add.
+  * @return Modified julian date.
+  */
 double ModifiedJulianDateAddYear(double mjd, int year)
 {
   DateTime date = ModifiedJulianDateToGregorianCalendarDate(mjd);
@@ -617,14 +567,12 @@ double ModifiedJulianDateAddYear(double mjd, int year)
   return GregorianCalendarDateToModifiedJulianDate(date);
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateAddMonth
- * Description: Modified julian date add month.
- * Input:       mjd:   Modified julian date.
- *              month: The number of month to add.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date add month.
+  * @param  [in] mjd:   Modified julian date.
+  * @param  [in] month: The number of month to add.
+  * @return Modified julian date.
+  */
 double ModifiedJulianDateAddMonth(double mjd, int month)
 {
   DateTime date = ModifiedJulianDateToGregorianCalendarDate(mjd);
@@ -634,14 +582,12 @@ double ModifiedJulianDateAddMonth(double mjd, int month)
   return GregorianCalendarDateToModifiedJulianDate(date);
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateAddWeek
- * Description: Modified julian date add week.
- * Input:       mjd:  Modified julian date.
- *              week: The number of week to add.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date add week.
+  * @param  [in] mjd:  Modified julian date.
+  * @param  [in] week: The number of week to add.
+  * @return Modified julian date.
+  */
 double ModifiedJulianDateAddWeek(double mjd, int week)
 {
   mjd += week * 7.0;
@@ -649,14 +595,12 @@ double ModifiedJulianDateAddWeek(double mjd, int week)
   return mjd;
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateAddDay
- * Description: Modified julian date add day.
- * Input:       mjd: Modified julian date.
- *              day: The number of day to add.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date add day.
+  * @param  [in] mjd: Modified julian date.
+  * @param  [in] day: The number of day to add.
+  * @return Modified julian date.
+  */
 double ModifiedJulianDateAddDay(double mjd, int day)
 {
   mjd += day;
@@ -664,14 +608,12 @@ double ModifiedJulianDateAddDay(double mjd, int day)
   return mjd;
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateAddHour
- * Description: Modified julian date add hour.
- * Input:       mjd:  Modified julian date.
- *              hour: The number of hour to add.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date add hour.
+  * @param  [in] mjd:  Modified julian date.
+  * @param  [in] hour: The number of hour to add.
+  * @return Modified julian date.
+  */
 double ModifiedJulianDateAddHour(double mjd, int hour)
 {
   mjd += hour / 24.0;
@@ -679,14 +621,12 @@ double ModifiedJulianDateAddHour(double mjd, int hour)
   return mjd;
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateAddMinute
- * Description: Modified julian date add minute.
- * Input:       mjd:    Modified julian date.
- *              minute: The number of minute to add.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date add minute.
+  * @param  [in] mjd:    Modified julian date.
+  * @param  [in] minute: The number of minute to add.
+  * @return Modified julian date.
+  */
 double ModifiedJulianDateAddMinute(double mjd, int minute)
 {
   mjd += minute / 1440.0;
@@ -694,14 +634,12 @@ double ModifiedJulianDateAddMinute(double mjd, int minute)
   return mjd;
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateAddSecond
- * Description: Modified julian date add second.
- * Input:       mjd:    Modified julian date.
- *              second: The number of second to add.
- * Output:
- * Return:      Modified julian date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date add second.
+  * @param  [in] mjd:    Modified julian date.
+  * @param  [in] second: The number of second to add.
+  * @return Modified julian date.
+  */
 double ModifiedJulianDateAddSecond(double mjd, int second)
 {
   mjd += second / 86400.0;
@@ -709,37 +647,31 @@ double ModifiedJulianDateAddSecond(double mjd, int second)
   return mjd;
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateToGregorianCalendarDate
- * Description: Modified julian date to gregorian calendar date.
- * Input:       mjd: Modified julian date.
- * Output:
- * Return:      Gregorian calendar date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date to gregorian calendar date.
+  * @param  [in] mjd: Modified julian date.
+  * @return Gregorian calendar date.
+  */
 DateTime ModifiedJulianDateToGregorianCalendarDate(double mjd)
 {
   return JulianDateToGregorianCalendarDate(mjd + 2400000.5);
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateToGpsWeekSecond
- * Description: Modified julian date to gps week and second.
- * Input:       mjd: Modified julian date.
- * Output:
- * Return:      Gps week and second.
-*****************************************************************/
+/**
+  * @brief  Modified julian date to gps week and second.
+  * @param  [in] mjd: Modified julian date.
+  * @return Gps week and second.
+  */
 GpsWeekSecond ModifiedJulianDateToGpsWeekSecond(double mjd)
 {
   return JulianDateToGpsWeekSecond(mjd + 2400000.5);
 }
 
-/****************************************************************
- * Function:    ModifiedJulianDateToJulianDate
- * Description: Modified julian date to julian date.
- * Input:       mjd: Modified julian date.
- * Output:
- * Return:      Julian date.
-*****************************************************************/
+/**
+  * @brief  Modified julian date to julian date.
+  * @param  [in] mjd: Modified julian date.
+  * @return Julian date.
+  */
 double ModifiedJulianDateToJulianDate(double mjd)
 {
   double jd = mjd + 2400000.5;
